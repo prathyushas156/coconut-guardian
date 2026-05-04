@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coconut Guardian</title>
+    <!-- Links to your CSS file for the styling -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <!-- TITLE -->
+    <h1>Coconut Guardian</h1>
+
+    <!-- SUBTITLE ONLY ON UPLOAD PAGE -->
+    {% if not prediction %}
+        <p class="subtitle">Upload a coconut tree part image to detect disease</p>
+    {% endif %}
+
+    <!-- UPLOAD FORM (ONLY BEFORE PREDICTION) -->
+    {% if not prediction %}
+    <form method="POST" enctype="multipart/form-data" class="upload-box">
+        <input type="file" name="image" required>
+        <br>
+        <button type="submit">Upload & Predict</button>
+    </form>
+    {% endif %}
+
+    <!-- IMAGE PREVIEW SECTION (MODIFIED to potentially hold two images) -->
+    <!-- This div container manages the layout of original and heatmap images -->
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+        {% if image_path %}
+            <div class="image-preview">
+                <!-- If the heatmap exists, this might be labeled 'Original Image' -->
+                <img src="{{ image_path }}" style="max-width: 100%;">
+            </div>
+        {% endif %}
+
+        <!-- HEATMAP IMAGE SECTION (Ready to display when the app.py sends a heatmap_path) -->
+        {% if heatmap_path %}
+            <div class="image-preview">
+                <!-- This is where the red heatmap overlay image would go -->
+                <img src="{{ heatmap_path }}" style="max-width: 100%; border: 2px solid red;">
+            </div>
+        {% endif %}
+    </div>
+
+
+    <!-- RESULT SECTION -->
+    {% if prediction %}
+        <div class="prediction {% if confidence < 60 %}low{% else %}high{% endif %}">
+            Prediction: **{{ prediction }}**
+        </div>
+
+        <div class="confidence">
+            Confidence: {{ confidence|round(2) }}%
+        </div>
+
+        <!-- LOW CONFIDENCE MESSAGE (UPDATED TEXT) -->
+        {% if confidence < 60 %}
+            <div class="warning">
+                Upload a proper image of coconut tree parts.
+            </div>
+        {% endif %}
+
+        <!-- SINGLE BUTTON AT BOTTOM -->
+        <div class="again-btn">
+            <button onclick="window.location.href='/'">
+                Predict Another Image
+            </button>
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>

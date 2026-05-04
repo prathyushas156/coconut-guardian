@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+.Python
+
+# Virtual environments
+venv/
+.venv/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local artifacts
+*.log
+
+# ML / large artifacts (keep models only if you intend to version them)
+*.h5
+*.keras
+*.tflite
+
+# App runtime uploads
+static/uploads/
+static/heatmaps/
+
+# Dataset (often huge)
+Coconut Tree Disease Dataset/
+
