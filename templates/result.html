@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coconut Guardian – Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f8f5;
+            text-align: center;
+            padding: 40px;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 500px;
+            margin: auto;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .prediction {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+        .confidence {
+            font-size: 16px;
+            margin-top: 8px;
+            color: #555;
+        }
+        .message {
+            margin-top: 15px;
+            color: #c62828;
+            font-weight: bold;
+        }
+        .btn {
+            margin-top: 25px;
+            display: inline-block;
+            padding: 10px 20px;
+            background: #2e7d32;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>🌴 Coconut Guardian</h2>
+
+        <!-- IMAGE -->
+        {% if image_path %}
+            <img src="{{ image_path }}" alt="Uploaded Image">
+        {% endif %}
+
+        <!-- PREDICTION -->
+        {% if prediction %}
+            <div class="prediction">
+                Prediction: {{ prediction }}
+            </div>
+        {% endif %}
+
+        <!-- CONFIDENCE -->
+        {% if confidence %}
+            <div class="confidence">
+                Confidence: {{ confidence }}
+            </div>
+        {% endif %}
+
+        <!-- LOW CONFIDENCE MESSAGE -->
+        {% if message %}
+            <div class="message">
+                {{ message }}
+            </div>
+        {% endif %}
+
+        <a href="/" class="btn">Predict Another Image</a>
+    </div>
+
+</body>
+</html>

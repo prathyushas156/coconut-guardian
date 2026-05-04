@@ -31,3 +31,5 @@ static/heatmaps/
 # Dataset (often huge)
 Coconut Tree Disease Dataset/
 
+# Env files
+.env

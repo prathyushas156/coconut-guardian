@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Coconut Guardian
 
 Detect coconut tree diseases from an uploaded image using a TensorFlow/Keras model, with an optional Grad-CAM heatmap visualization.
@@ -101,4 +102,40 @@ Recommended Cloud Run settings for TensorFlow apps:
 
 - The model file `final_model.h5` must be present at runtime.
 - Uploaded images and generated heatmaps are saved under `static/uploads` and `static/heatmaps`.
+=======
+# 🌴 Coconut Guardian
+
+Coconut Guardian is a deep learning–based web application that detects diseases in coconut trees using image classification.  
+The system helps farmers and agricultural practitioners identify coconut diseases early and take preventive measures.
+
+---
+
+## 🚀 Features
+
+- Upload an image of a coconut tree
+- Detects 5 coconut diseases:
+  - Bud Rot Dropping
+  - Bud Rot
+  - Gray Leaf Spot
+  - Leaf Rot
+  - Stem Bleeding
+- Displays prediction with confidence score
+- Shows warning message for low-confidence or improper images
+- Lightweight and optimized using TensorFlow Lite
+
+---
+
+## 🧠 Technologies Used
+
+- Python
+- Flask
+- TensorFlow Lite
+- NumPy
+- Pillow
+- HTML & CSS
+
+---
+
+## 📂 Project Structure
+>>>>>>> d3b4471fcb982e60a47c23b2871f67935a9014da
 
